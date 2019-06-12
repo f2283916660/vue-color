@@ -14,6 +14,10 @@
           <chrome-picker :value="colors" @input="updateValue"></chrome-picker>
           <h2>Chrome</h2>
         </div>
+        <div class="demo-item">
+          <circle-picker v-model="colors" ></circle-picker>
+          <h2>hue circle</h2>
+        </div>
       </div>
     </div>
 
@@ -66,6 +70,7 @@ import swatches from '../src/components/Swatches.vue'
 import slider from '../src/components/Slider.vue'
 import sketch from '../src/components/Sketch.vue'
 import chrome from '../src/components/Chrome.vue'
+import circle from '../src/components/Circle.vue'
 import photoshop from '../src/components/Photoshop.vue'
 
 let defaultProps = {
@@ -100,7 +105,8 @@ export default {
     'slider-picker': slider,
     'sketch-picker': sketch,
     'chrome-picker': chrome,
-    'photoshop-picker': photoshop
+    'photoshop-picker': photoshop,
+    'circle-picker': circle
   },
   data () {
     return {

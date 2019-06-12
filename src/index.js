@@ -6,10 +6,12 @@ import Swatches from './components/Swatches.vue'
 import Photoshop from './components/Photoshop.vue'
 import Sketch from './components/Sketch.vue'
 import Chrome from './components/Chrome.vue'
+import Circle from './components/Circle.vue'
 import Alpha from './components/common/Alpha.vue'
 import Checkboard from './components/common/Checkboard.vue'
 import EditableInput from './components/common/EditableInput.vue'
 import Hue from './components/common/Hue.vue'
+import HueCircle from './components/common/HueCircle.vue'
 import Saturation from './components/common/Saturation.vue'
 import ColorMixin from './mixin/color.js'
 
@@ -23,6 +25,8 @@ const VueColor = {
   Photoshop,
   Sketch,
   Chrome,
+  Circle,
+  HueCircle,
   Alpha,
   Checkboard,
   EditableInput,
