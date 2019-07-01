@@ -11,12 +11,12 @@
           </div>
         </div>
         <div class="demo-item">
-          <chrome-picker :value="colors" @input="updateValue"></chrome-picker>
-          <h2>Chrome</h2>
+          <circle-picker v-model="colors" ></circle-picker>
+          <h2 @click="colors='rgb(0,0,255)'">hue circle</h2>
         </div>
         <div class="demo-item">
-          <circle-picker v-model="colors" ></circle-picker>
-          <h2>hue circle</h2>
+          <chrome-picker :value="colors" @input="updateValue"></chrome-picker>
+          <h2>Chrome</h2>
         </div>
       </div>
     </div>
@@ -194,7 +194,6 @@ html {
 }
 .demo-item {
   position: relative;
-  margin-bottom: 10px;
   margin: 0 10px 0 10px;
   z-index: 2;
 }

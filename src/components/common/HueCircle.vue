@@ -1,11 +1,11 @@
 <template>
-  <div class="vc-huecircle"
+  <div class="vc-huecircle" :style="{top: pointerSize+'px',bottom: pointerSize+'px',left: pointerSize+'px',right: pointerSize+'px'}"
        ref="container"
        @mousedown="handleMouseDown"
        @touchmove="handleChange"
        @touchstart="handleChange">
     <div class="vc-huecircle-pointer" :style="{top: pointerTop, left: pointerLeft}">
-      <div class="vc-huecircle-picker"></div>
+      <div class="vc-huecircle-picker" :style="{width: pointerSize+'px', height: pointerSize+'px'}"></div>
     </div>
   </div>
 </template>
@@ -14,7 +14,11 @@
 
   export default {
     props: {
-      value: Object
+      value: Object,
+      pointerSize: {
+        type: Number,
+        default: 10
+      }
     },
     data () {
       return {
@@ -77,10 +81,11 @@
         let hsvS = r / originPointX
         hsvS = hsvS > 1 ? 1 : hsvS
 
+        let hsV = this.colors.hsv.v
         this.$emit('change', {
           h: hsvH,
           s: hsvS,
-          v: this.colors.hsv.v,
+          v: hsvS && !hsV ? 1 : hsV,
           a: this.colors.hsv.a,
           source: 'hsv'
         })
@@ -108,10 +113,10 @@
 <style>
   .vc-huecircle {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     border-radius: 2px;
     background: url("./bgcolor.png") no-repeat center center;
     background-size: 100% 100%;
@@ -136,6 +141,6 @@
     border-radius: 50%;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
     background: #fff;
-    transform: translate(-4px, -4px);
+    transform: translate(-50%, -50%);
   }
 </style>
